@@ -1,0 +1,126 @@
+.item-list-section {
+  margin-top: 16px;
+}
+
+.item-list-section h3 {
+  color: var(--text-secondary);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.item-list-headers {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.item-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.col-name { flex: 2.5; }
+.col-qty { flex: 0.8; }
+.col-price { flex: 1.2; }
+.col-total { 
+  flex: 1; 
+  display: flex;
+  align-items: center;
+}
+.col-action {
+  flex: 0.3;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.item-total-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 16px 0;
+}
+
+.delete-item-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 16px 0;
+}
+
+.delete-item-btn:hover {
+  color: var(--color-08);
+}
+
+.add-new-item-btn {
+  width: 100%;
+  padding: 18px;
+  border-radius: 24px;
+  border: none;
+  background-color: var(--bg-input);
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.add-new-item-btn:hover {
+  background-color: var(--btn-cancel-hover);
+}
+
+/* ── Mobile (≤ 767px) ───────────────────────────── */
+@media (max-width: 767px) {
+  /* Hide table-style headers on mobile */
+  .item-list-headers {
+    display: none;
+  }
+
+  /* Each item stacks: name on top, qty/price/total/delete on bottom row */
+  .item-row {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-input);
+  }
+
+  .item-row:last-of-type {
+    border-bottom: none;
+  }
+
+  /* Name takes full width */
+  .col-name {
+    flex: 1 1 100%;
+  }
+
+  /* Qty, Price, Total, Delete share the second row */
+  .col-qty    { flex: 0 0 48px; }
+  .col-price  { flex: 1; }
+  .col-total  { flex: 1; }
+  .col-action { flex: 0 0 32px; }
+
+  /* Show inline label above each field on mobile */
+  .col-qty::before    { content: "Qty.";   display: block; font-size: 11px; color: var(--text-secondary); margin-bottom: 6px; }
+  .col-price::before  { content: "Price";  display: block; font-size: 11px; color: var(--text-secondary); margin-bottom: 6px; }
+  .col-total::before  { content: "Total";  display: block; font-size: 11px; color: var(--text-secondary); margin-bottom: 6px; }
+
+  .item-total-value {
+    padding: 16px 0 0 0;
+    font-size: 14px;
+  }
+
+  .add-new-item-btn {
+    font-size: 14px;
+    padding: 14px;
+  }
+}
+

@@ -1,0 +1,273 @@
+.form-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 103px;
+  width: calc(100% - 103px);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  display: flex;
+  overflow: hidden;
+}
+
+.form-drawer {
+  width: 716px;
+  max-width: 100%;
+  height: 100%;
+  background-color: var(--bg-panel);
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.form-drawer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-drawer::-webkit-scrollbar-thumb {
+  background-color: var(--border-input);
+  border-radius: 4px;
+}
+
+.drawer-title {
+  padding: 48px 40px 32px 40px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.drawer-title span {
+  color: var(--text-secondary);
+}
+
+.form-content {
+  flex: 1;
+  padding: 0 40px 20px 40px;
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  color: var(--color-01);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.form-row {
+  margin-bottom: 24px;
+}
+
+.three-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.date-input, .select-input {
+  position: relative;
+  width: 100%;
+}
+
+.date-input input, .select-input select {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 4px;
+  border: 1px solid var(--border-input);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: var(--bg-input);
+}
+
+.select-input select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.date-input input:focus, .select-input select:focus {
+  border-color: var(--color-01);
+}
+
+.date-input i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7e88c3;
+  pointer-events: none;
+}
+
+.select-input i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-01);
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.drawer-footer {
+  padding: 24px 40px;
+  background-color: var(--bg-panel);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -10px 10px -10px var(--shadow-color);
+  z-index: 10;
+}
+
+.drawer-footer.edit-mode {
+  justify-content: flex-end;
+}
+
+.right-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.drawer-footer button {
+  padding: 16px 24px;
+  border-radius: 24px;
+  border: none;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-discard {
+  background-color: var(--btn-cancel-bg);
+  color: var(--btn-cancel-text);
+}
+
+.btn-discard:hover {
+  background-color: var(--btn-cancel-hover);
+}
+
+.btn-save-draft {
+  background-color: var(--btn-save-bg);
+  color: var(--btn-save-text);
+}
+
+.btn-save-draft:hover {
+  background-color: var(--btn-save-hover);
+}
+
+.btn-save-send, .btn-save-changes {
+  background-color: var(--color-01);
+  color: white;
+}
+
+.btn-save-send:hover, .btn-save-changes:hover {
+  background-color: var(--color-02);
+}
+
+.btn-cancel-edit {
+  background-color: var(--btn-cancel-bg);
+  color: var(--btn-cancel-text);
+}
+
+.btn-cancel-edit:hover {
+  background-color: var(--btn-cancel-hover);
+}
+
+.global-errors {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.global-errors p {
+  color: var(--color-08);
+  font-size: 10px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* ── Tablet (768px–1023px) ──────────────────────── */
+@media (max-width: 1023px) {
+  .form-drawer-overlay {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .form-drawer {
+    width: 616px;
+    max-width: calc(100% - 48px);
+    border-radius: 0 20px 20px 0;
+  }
+
+  .three-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+/* ── Mobile (≤ 767px) ───────────────────────────── */
+@media (max-width: 767px) {
+  .form-drawer {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .drawer-title {
+    padding: 32px 24px 20px 24px;
+    font-size: 20px;
+  }
+
+  .form-content {
+    padding: 0 24px 16px 24px;
+  }
+
+  .form-section {
+    margin-bottom: 32px;
+  }
+
+  .form-row {
+    margin-bottom: 16px;
+  }
+
+  .three-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .three-cols > :last-child {
+    grid-column: 1 / -1;
+  }
+
+  .two-cols {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .drawer-footer {
+    padding: 16px 24px;
+    gap: 12px;
+  }
+
+  .drawer-footer button {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+}
+

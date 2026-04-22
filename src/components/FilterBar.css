@@ -1,0 +1,230 @@
+.filter-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.filter-bar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.filter-bar-left h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.filter-bar-left p {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.filter-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.filter-btn {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.filter-btn i {
+  font-size: 14px;
+  color: var(--color-01);
+}
+/* ── New Invoice button ── */
+.btn-primary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  background-color: var(--color-01);
+  color: #fff;
+  /* 8px left pad hugs the circle; 18px right gives text breathing room */
+  padding: 8px 18px 8px 8px;
+  border-radius: 36px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-02);
+}
+
+/* White circle — purple plus perfectly centred */
+.plus-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.plus-circle i {
+  font-size: 13px;
+  color: var(--color-01);
+  line-height: 1;
+}
+
+/* Desktop: show full label, hide short label */
+.btn-text-desktop { display: inline; }
+.btn-text-mobile  { display: none; }
+.filter-wrappper {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 192px;
+  background-color: var(--bg-card);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-primary) !important;
+}
+
+.checkbox input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.checkbox input:hover {
+  border-color: var(--color-01);
+}
+
+.checkbox input:checked {
+  background-color: var(--color-01);
+  border-color: var(--color-01);
+}
+
+.checkbox input:checked::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Tablet - 768px to 1023px */
+@media (max-width: 1023px) {
+  .filter-bar {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .filter-bar-left h1 {
+    font-size: 28px;
+  }
+}
+
+/* ── Mobile (< 600px) ── */
+@media (max-width: 599px) {
+  .filter-bar {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .filter-bar-left h1 {
+    font-size: 20px;
+  }
+
+  .filter-bar-left p {
+    font-size: 11px;
+  }
+
+  .filter-bar-right {
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  /* Compact filter button: hide text, show only "Filter" via pseudo */
+  .filter-btn span {
+    display: none;
+  }
+
+  .filter-btn::before {
+    content: "Filter";
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .filter-btn {
+    gap: 4px;
+  }
+
+  /* New Invoice button: smaller circle, show "New" only */
+  .btn-primary {
+    padding: 6px 14px 6px 6px;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .btn-text-desktop { display: none; }
+  .btn-text-mobile  { display: inline; }
+
+  .plus-circle {
+    width: 28px;
+    height: 28px;
+  }
+
+  .plus-circle i {
+    font-size: 11px;
+  }
+
+  .filter-wrappper .dropdown-menu {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+}

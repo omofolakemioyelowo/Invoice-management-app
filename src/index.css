@@ -1,0 +1,102 @@
+:root {
+  --color-01: #7c5dfa; /* Main Purple */
+  --color-02: #9277ff; /* Light Purple */
+  --color-03: #1e2139; /* Dark Blue (Card BG) */
+  --color-04: #252945; /* Input/Form BG */
+  --color-08: #ec5757; /* Red (Errors/Delete) */
+
+  --sidebar-bg: #373b53;
+  --color-11: #f8f8fb; /* Light Gray BG */
+  --color-12: #141625; /* Very Dark BG */
+  --card-bg: #ffffff;
+
+  /* Fonts */
+  --font-main: "League Spartan", sans-serif;
+  --font-color: #0c0e16;
+  --font-color-light: #888eb0;
+
+  /* Theme Variables (Light) */
+  --bg-body: var(--color-11);
+  --bg-card: #ffffff;
+  --bg-panel: #ffffff;
+  --bg-input: #ffffff;
+  --border-input: #dfe3fa;
+  --text-primary: #0c0e16;
+  --text-secondary: #888eb0;
+  --btn-cancel-bg: #f9fafe;
+  --btn-cancel-text: #7e88c3;
+  --btn-cancel-hover: #dfe3fa;
+  --btn-save-bg: #373b53;
+  --btn-save-text: #888eb0;
+  --btn-save-hover: #0c0e16;
+  --shadow-color: rgba(72, 84, 159, 0.25);
+}
+
+body.dark-theme {
+  --bg-body: var(--color-12);
+  --bg-card: var(--color-03);
+  --bg-panel: var(--color-12);
+  --bg-input: var(--color-03);
+  --border-input: var(--color-04);
+  --text-primary: #ffffff;
+  --text-secondary: #dfe3fa;
+  --btn-cancel-bg: var(--color-04);
+  --btn-cancel-text: #dfe3fa;
+  --btn-cancel-hover: #ffffff;
+  --btn-save-bg: var(--color-03);
+  --btn-save-text: #dfe3fa;
+  --btn-save-hover: var(--color-04);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+main {
+  padding-left: 103px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
+  padding: 0 24px;
+}
+
+@media (max-width: 1023px) {
+  main {
+    padding-left: 0;
+    padding-top: 72px;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    padding-top: 60px;
+  }
+  .container {
+    padding: 0 16px;
+  }
+}

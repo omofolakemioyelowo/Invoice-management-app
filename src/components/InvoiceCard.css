@@ -1,0 +1,139 @@
+/* ── Desktop / Tablet (≥ 600px) — single flex row ── */
+.invoice-card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 10px -10px var(--shadow-color);
+  transition: border-color 0.2s ease, background-color 0.3s ease;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.invoice-card:hover {
+  border-color: #7c5dfa;
+}
+
+/* ID — left edge */
+.inv-id {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 72px;
+  flex-shrink: 0;
+}
+
+.inv-hash {
+  color: #7c5dfa;
+}
+
+/* Due date */
+.inv-due {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+  padding-left: 28px;
+}
+
+/* Client name — centre */
+.inv-client {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+  text-align: left;
+}
+
+/* Amount — bold, larger */
+.inv-amt {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  min-width: 90px;
+  text-align: right;
+  padding-right: 16px;
+}
+
+/* Badge wrapper — fixed width, centred */
+.inv-badge {
+  width: 104px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Arrow — far right */
+.inv-arrow {
+  color: #7c5dfa;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Mobile (< 600px) — CSS Grid layout ── */
+@media (max-width: 599px) {
+  .invoice-card {
+    display: grid;
+    grid-template-areas:
+      "id      client"
+      "bottom  badge";
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 12px 8px;
+    padding: 24px;
+    align-items: start;
+  }
+
+  .inv-id {
+    grid-area: id;
+    font-size: 13px;
+    align-self: center;
+  }
+
+  .inv-client {
+    grid-area: client;
+    text-align: right;
+    align-self: center;
+  }
+
+  /* Stacked due + amount in bottom-left */
+  .inv-due {
+    grid-area: bottom;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Abuse :after to show the amount below the date */
+  .inv-due::after {
+    content: attr(data-amount);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .inv-amt {
+    display: none; /* shown via inv-due::after */
+  }
+
+  .inv-badge {
+    grid-area: badge;
+    width: auto;
+    justify-content: flex-end;
+    align-self: center;
+  }
+
+  /* Hide arrow on mobile */
+  .inv-arrow {
+    display: none;
+  }
+}
